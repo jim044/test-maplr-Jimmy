@@ -21,11 +21,13 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public PlayerDTO savePlayerByTeamYear(Long year, PlayerDTO playerDTO) throws Exception {
         TeamDTO teamDTO = teamDAO.getTeamByYear(year);
+
         if(teamDTO != null){
             playerDTO.setTeam(teamDTO);
         }else{
             throw new Exception("No available Team");
         }
+        
         return playerDAO.savePlayer(playerDTO);
     }
 

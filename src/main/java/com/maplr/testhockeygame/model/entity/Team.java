@@ -25,7 +25,7 @@ public class Team implements Serializable {
     @Column(name = "year", nullable = false, unique=true)
     private Long year;
 
-    @OneToMany(mappedBy="team")
+    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="team")
     private List<Player> players;
 
 }

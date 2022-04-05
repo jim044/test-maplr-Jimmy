@@ -11,10 +11,10 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses=TeamMapper.class, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface PlayerMapper {
 
-    @Mapping(source = "player.team", target = "team")
+    @Mapping(target = "team.players", ignore = true)
     PlayerDTO playerToPlayerDTO(Player player);
 
-    @Mapping(source = "playerDTO.team", target = "team")
+    @Mapping(target = "team.players", ignore = true)
     Player playerDTOToPlayer(PlayerDTO playerDTO);
 
     List<Player> playersDTOToPlayers(List<PlayerDTO> playersDTO);

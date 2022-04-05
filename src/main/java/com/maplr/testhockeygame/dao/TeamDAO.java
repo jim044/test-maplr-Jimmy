@@ -19,4 +19,8 @@ public class TeamDAO {
     {
         return teamMapper.teamToTeamDTO(teamRepository.findTeamByYear(year));
     }
+
+    public TeamDTO saveTeam(TeamDTO teamDTO) {
+        return teamMapper.teamToTeamDTO(teamRepository.save(teamMapper.teamDTOToTeam(teamDTO)));
+    }
 }

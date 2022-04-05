@@ -1,6 +1,8 @@
 package com.maplr.testhockeygame.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -32,7 +34,7 @@ public class Player implements Serializable {
     @Column(name = "is_captain", nullable = false)
     private Boolean isCaptain;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
     private Team team;
 
